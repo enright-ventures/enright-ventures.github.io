@@ -1,0 +1,281 @@
+@font-face {
+  font-family: "Funnel Display";
+  src: url("fonts/funnel-display.woff2") format("woff2");
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Funnel Sans";
+  src: url("fonts/funnel-sans.woff2") format("woff2");
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+:root {
+  --ultramarine: #1a1fd0;
+  --lime: #d7ff5e;
+  --white: #ffffff;
+  --haze: #d6d9ff;
+  --line: rgba(255, 255, 255, 0.28);
+  --gutter: clamp(16px, 5vw, 80px);
+  --band: 36svh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--ultramarine);
+  color: var(--white);
+  font-family: "Funnel Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Funnel Display", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px var(--gutter);
+}
+
+.wordmark {
+  font-family: "Funnel Display", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 36px);
+}
+
+.site-header nav a {
+  text-decoration: none;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+/* The canvas and the copy share one grid cell, so the figure stays pinned
+   while the copy scrolls past it. */
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.figure {
+  grid-area: 1 / 1;
+  position: sticky;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100svh;
+}
+
+.copy {
+  grid-area: 1 / 1;
+  position: relative;
+  width: 50%;
+  padding-left: var(--gutter);
+}
+
+.hero,
+.practice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 48px 0;
+}
+
+.hero {
+  min-height: calc(100svh - 84px);
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6.2vw, 7rem);
+  line-height: 0.98;
+}
+
+.hero .lede {
+  margin: 32px 0 0;
+}
+
+.hero p:last-child {
+  margin: 32px 0 0;
+}
+
+.lede {
+  max-width: 42ch;
+  margin: 20px 0 0;
+  font-size: clamp(1.1875rem, 1.6vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.button {
+  display: inline-block;
+  padding: 14px 24px;
+  background: var(--lime);
+  color: var(--ultramarine);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--white);
+}
+
+.practice h2 {
+  font-size: clamp(2.25rem, 4.4vw, 4.75rem);
+  line-height: 1.02;
+}
+
+.practice ul {
+  max-width: 34rem;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--haze);
+}
+
+.practice li {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.contact {
+  padding: clamp(64px, 10vw, 144px) var(--gutter);
+  background: var(--lime);
+  color: var(--ultramarine);
+}
+
+.contact h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.contact p {
+  margin: 12px 0 0;
+}
+
+.email {
+  font-family: "Funnel Display", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2rem, 8.4vw, 9rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-decoration-thickness: 2px;
+  overflow-wrap: anywhere;
+}
+
+.email:hover {
+  text-decoration-thickness: 4px;
+}
+
+.legal {
+  padding: 40px var(--gutter);
+  color: var(--haze);
+  font-size: 0.9375rem;
+}
+
+.legal dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px clamp(32px, 5vw, 72px);
+  margin: 0 0 24px;
+}
+
+.legal dt {
+  font-size: 0.875rem;
+}
+
+.legal dd {
+  margin: 0;
+  color: var(--white);
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.legal p {
+  max-width: 68ch;
+  margin: 4px 0 0;
+}
+
+/* On narrow screens the figure becomes a pinned band above the copy. */
+@media (max-width: 800px) {
+  .figure {
+    z-index: 1;
+    height: var(--band);
+    background: var(--ultramarine);
+  }
+
+  .stage {
+    display: block;
+  }
+
+  .copy {
+    width: auto;
+    padding: 0 var(--gutter);
+  }
+
+  .hero,
+  .practice {
+    min-height: 0;
+    padding: 32px 0 56px;
+    scroll-margin-top: var(--band);
+  }
+
+  .practice {
+    min-height: calc(100svh - var(--band));
+  }
+
+  .hero h1 {
+    font-size: clamp(2.75rem, 13vw, 5rem);
+  }
+}
+
+@media (max-width: 560px) {
+  .nav-practice {
+    display: none;
+  }
+}
